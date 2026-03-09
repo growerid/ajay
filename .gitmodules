@@ -2,3 +2,7 @@
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 17.0
+[submodule "OCA/web"]
+	path = OCA/web
+	url = git@github.com:OCA/web.git
+	branch = 17.0
