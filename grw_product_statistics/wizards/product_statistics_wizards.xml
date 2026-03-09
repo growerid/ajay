@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_statistics_wizard_action" model="ir.actions.act_window">
+            <field name="name">Ejecutar Estadistica</field>
+            <field name="res_model">product.statistics.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    
+        <menuitem
+            id="product_statistics_wizard_menu"
+            name="Ejecutar Estadistica"
+            parent="grw_product_statistics.product_statistics_app_menu_root"
+            action="grw_product_statistics.product_statistics_wizard_action"
+            sequence="20"/>
+
+
+        <record id="product_statistics_wizard_view_form" model="ir.ui.view">
+            <field name="name">product.statistics.wizard.view.form</field>
+            <field name="model">product.statistics.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Ejecutar Estadistica">
+                    <group>
+                        <field name="app_id"
+                            options="{'no_create': True, 'no_edit': True, 'no_open': True}"
+                        />
+                    </group>
+                    <group>
+                        <group>
+                            <field name="date_start"/>
+                        </group>
+                        <group>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_execute" class="btn btn-primary" string="Ejecutar" type="object"/>
+                        <button string="Cancelar" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

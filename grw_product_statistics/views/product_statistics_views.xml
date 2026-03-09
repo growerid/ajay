@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+        <menuitem
+            id="product_statistics_app_menu_root"
+            name="Estadisticas"
+            web_icon="grw_product_statistics,static/description/app_icon.png"
+            sequence="10"/>
+
+
+        <record id="product_statistics_action" model="ir.actions.act_window">
+            <field name="name">Estadisticas de Producto</field>
+            <field name="res_model">product.statistics</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        
+        <menuitem
+            id="product_statistics_menu"
+            name="Estadisticas"
+            parent="grw_product_statistics.product_statistics_app_menu_root"
+            action="grw_product_statistics.product_statistics_action"
+            sequence="10"/>
+
+
+        <record id="product_statistics_view_tree" model="ir.ui.view">
+            <field name="name">product.statistics.view.tree</field>
+            <field name="model">product.statistics</field>
+            <field name="arch" type="xml">
+                <tree string="Estadisticas de Producto" edit="0" create="0">
+                    <field name="name" optional="show"/>
+                    <field name="ps_connection_id" optional="hide"/>
+                    <field name="year" optional="show"/>
+                    <field name="quarter" optional="show"/>
+                    <field name="month" optional="show"/>
+                    <field name="fob_date" optional="show"/>
+                    <field name="cif_date" optional="show"/>
+                    <field name="hs_code_2" optional="show"/>
+                    <field name="product_group" optional="hide"/>
+                    <field name="original_name_destination" optional="hide"/>
+                    <field name="group_name_destination" optional="hide"/>
+                    <field name="continent" optional="hide"/>
+                    <field name="market_zone" optional="show"/>
+                    <field name="origin" optional="show"/>
+                    <field name="producer" optional="show"/>
+                    <field name="cluster" widget="many2many_tags" optional="hide"/>
+                    <field name="detail" optional="hide"/>
+                    <field name="quantity_kg" optional="show"/>
+                    <field name="quantity_ie_kg" optional="show"/>
+                    <field name="quantity_mt" optional="show"/>
+                    <field name="quantity_ie_mt" optional="show"/>
+                    <field name="total_fob" optional="show"/>
+                    <field name="fob_up_kg" optional="show"/>
+                    <field name="cif_up_kg" optional="show"/>
+                    <field name="total_cif" optional="show"/>
+                    <field name="description" optional="hide"/>
+                    <field name="hs_source" optional="hide"/>
+                    <field name="hs_matched" optional="hide"/>
+                    <field name="needs_llm" optional="hide"/>
+                    <field name="source" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="product_statistics_connection_action" model="ir.actions.act_window">
+            <field name="name">Conexiones</field>
+            <field name="res_model">product.statistics.connection</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        
+        <menuitem
+            id="product_statistics_config_menu"
+            name="Configuración"
+            parent="grw_product_statistics.product_statistics_app_menu_root"
+            sequence="30"/>
+
+        
+        <menuitem
+            id="product_statistics_connection_menu"
+            name="Conexiones"
+            parent="grw_product_statistics.product_statistics_config_menu"
+            action="grw_product_statistics.product_statistics_connection_action"
+            sequence="10"/>
+
+
+        <record id="product_statistics_connection_view_tree" model="ir.ui.view">
+            <field name="name">product.statistics.connection.view.tree</field>
+            <field name="model">product.statistics.connection</field>
+            <field name="arch" type="xml">
+                <tree string="Conexiones" create="0" edit="0" delete="0">
+                    <field name="name"/>
+                    <field name="app_id"/>
+                    <field name="exec_date"/>
+                    <field name="state" widget="badge" decoration-info="state == 'processing'" decoration-success="state == 'finalized'" decoration-danger="state == 'error'"/>
+                    <field name="response"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="product_statistics_connection_view_form" model="ir.ui.view">
+            <field name="name">product.statistics.connection.view.form</field>
+            <field name="model">product.statistics.connection</field>
+            <field name="arch" type="xml">
+                <form string="Conexión" create="0" edit="0" delete="0">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="sent,processing,finalized,error"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="app_id"/>
+                            </group>
+                            <group>
+                                <field name="exec_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="response"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="product_statistics_app_action" model="ir.actions.act_window">
+            <field name="name">Aplicaciones</field>
+            <field name="res_model">product.statistics.app</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        
+        <menuitem
+            id="product_statistics_app_menu"
+            name="Aplicaciones"
+            parent="grw_product_statistics.product_statistics_config_menu"
+            action="grw_product_statistics.product_statistics_app_action"
+            sequence="20"/>
+
+
+        <record id="product_statistics_app_view_tree" model="ir.ui.view">
+            <field name="name">product.statistics.app.view.tree</field>
+            <field name="model">product.statistics.app</field>
+            <field name="arch" type="xml">
+                <tree string="Aplicaciones">
+                    <field name="name"/>
+                    <field name="id_app"/>
+                </tree>
+            </field>
+        </record>
+
+        
+        <record id="product_statistics_app_view_form" model="ir.ui.view">
+            <field name="name">product.statistics.app.view.form</field>
+            <field name="model">product.statistics.app</field>
+            <field name="arch" type="xml">
+                <form string="Aplicación">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="id_app"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="excluded_word_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    
+    </data>
+</odoo>

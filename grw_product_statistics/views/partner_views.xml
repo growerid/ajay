@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+            id="product_statistics_partner_root_menu"
+            name="Contactos"
+            parent="grw_product_statistics.product_statistics_app_menu_root"
+            sequence="50"/>
+    
+
+        <menuitem id="product_statistics_partner_menu"
+            name="Contactos"
+            action="contacts.action_contacts"
+            parent="grw_product_statistics.product_statistics_partner_root_menu"
+            sequence="1"/>
+
+    
+        <menuitem id="product_statistics_partner_category_menu"
+            action="base.action_partner_category_form"
+            name="Etiquetas de Contacto"
+            parent="grw_product_statistics.product_statistics_partner_root_menu"
+            sequence="2"/>
+
+
+        <menuitem id="product_statistics_country_partner_menu"
+            action="base.action_country"
+            name="Países"
+            parent="grw_product_statistics.product_statistics_partner_root_menu"
+            sequence="3"/>
+
+
+        <menuitem id="product_statistics_country_group_menu"
+            action="base.action_country_group"
+            name="Grupo del pais"
+            parent="grw_product_statistics.product_statistics_partner_root_menu"
+            sequence="4"/>
+    
+    </data>
+</odoo>

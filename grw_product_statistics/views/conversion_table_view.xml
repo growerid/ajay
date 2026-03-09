@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="conversion_table_action" model="ir.actions.act_window">
+            <field name="name">Tablas de Conversión</field>
+            <field name="res_model">conversion.table</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    
+        <menuitem
+            id="conversion_table_menu"
+            name="Tablas de Conversión"
+            parent="grw_product_statistics.product_statistics_config_menu"
+            action="grw_product_statistics.conversion_table_action"
+            sequence="30"/>
+
+
+        <record id="conversion_table_view_form" model="ir.ui.view">
+            <field name="name">conversion.table.view.form</field>
+            <field name="model">conversion.table</field>
+            <field name="arch" type="xml">
+                <form string="Tabla de Conversión">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="conversion_line_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="conversion_table_view_tree" model="ir.ui.view">
+            <field name="name">conversion.table.view.tree</field>
+            <field name="model">conversion.table</field>
+            <field name="arch" type="xml">
+                <tree string="Tablas de Conversión">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="conversion_table_line_view_tree" model="ir.ui.view">
+            <field name="name">conversion.table.line.view.tree</field>
+            <field name="model">conversion.table.line</field>
+            <field name="arch" type="xml">
+                <tree string="Lineas de Conversión" editable="bottom">
+                    <field name="value_in"/>
+                    <field name="value_out"/>
+                </tree>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

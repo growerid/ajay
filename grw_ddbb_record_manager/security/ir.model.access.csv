@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ddbb_record_manager,base.ddbb_record_manager,model_ddbb_record_manager,base.group_no_one,1,1,1,1
+ddbb_record_manager_field,base.ddbb_record_manager_field,model_ddbb_record_manager_field,base.group_no_one,1,1,1,1

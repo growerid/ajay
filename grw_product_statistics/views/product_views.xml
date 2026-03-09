@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+            id="product_statistics_product_root_menu"
+            name="Productos"
+            parent="grw_product_statistics.product_statistics_app_menu_root"
+            sequence="40"/>
+    
+
+        <menuitem 
+            id="product_statistics_product_menu" 
+            name="Productos" 
+            action="stock.product_template_action_product"
+            parent="grw_product_statistics.product_statistics_product_root_menu" 
+            sequence="1"/>
+
+
+        <menuitem
+            id="product_statistics_product_category_menu"
+            name="Categorias de Producto" 
+            action="product.product_category_action_form" 
+            parent="grw_product_statistics.product_statistics_product_root_menu" 
+            sequence="2"/>
+    
+    </data>
+</odoo>
