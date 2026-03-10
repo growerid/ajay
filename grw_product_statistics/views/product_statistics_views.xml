@@ -59,6 +59,7 @@
                     <field name="hs_matched" optional="hide"/>
                     <field name="needs_llm" optional="hide"/>
                     <field name="source" optional="hide"/>
+                    <field name="bill_of_landing" optional="hide"/>
                 </tree>
             </field>
         </record>

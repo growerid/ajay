@@ -117,6 +117,9 @@ class ProductStatistics(models.Model):
     source = fields.Text(
         string='Source'
     )
+    bill_of_landing = fields.Char(
+        string='Bill of Landing'    
+    )
 
 
 
