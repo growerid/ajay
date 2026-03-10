@@ -12,3 +12,4 @@ filestore/
 config/
 log/
 venv/
+odoo_env/
