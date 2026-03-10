@@ -202,6 +202,10 @@ class ProductStatisticsApp(models.Model):
         comodel_name='product.statistics.excluded.words',
         string='Palabras Excluidas'
     )
+    tariff_position_ids = fields.Many2many(
+        comodel_name='product.statistics.tariff.position',
+        string='Posiciones Arancelarias'
+    )
 
 
 
@@ -214,5 +218,18 @@ class ProductStatisticsExcludedWords(models.Model):
 
     name = fields.Char(
         string='Palabra',
+        required=True
+    )
+
+
+
+
+class ProductStatisticsTariffPosition(models.Model):
+    _name = 'product.statistics.tariff.position'
+    _description = 'Estadisticas de Producto - Posición Arancelaria'
+
+
+    name = fields.Char(
+        string='Posición Arancelaria',
         required=True
     )

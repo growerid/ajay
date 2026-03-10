@@ -169,6 +169,7 @@
                         </group>
                         <group>
                             <field name="excluded_word_ids" widget="many2many_tags"/>
+                            <field name="tariff_position_ids" widget="many2many_tags"/>
                         </group>
                     </sheet>
                 </form>
