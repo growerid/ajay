@@ -28,7 +28,7 @@
             <field name="name">product.statistics.view.tree</field>
             <field name="model">product.statistics</field>
             <field name="arch" type="xml">
-                <tree string="Estadisticas de Producto" edit="0" create="0">
+                <tree string="Estadisticas de Producto" create="0" editable="top">
                     <field name="name" optional="show"/>
                     <field name="ps_connection_id" optional="hide"/>
                     <field name="year" optional="show"/>
@@ -36,7 +36,9 @@
                     <field name="month" optional="show"/>
                     <field name="fob_date" optional="show"/>
                     <field name="cif_date" optional="show"/>
-                    <field name="hs_code_2" optional="show"/>
+                    <field name="hs_code_2" optional="show"
+                        options="{'no_create': True, 'no_edit': True}"
+                    />
                     <field name="product_group" optional="hide"/>
                     <field name="original_name_destination" optional="hide"/>
                     <field name="group_name_destination" optional="hide"/>
@@ -61,6 +63,17 @@
                     <field name="source" optional="hide"/>
                     <field name="bill_of_landing" optional="hide"/>
                 </tree>
+            </field>
+        </record>
+
+
+        <record id="product_statistics_view_search" model="ir.ui.view">
+            <field name="name">product.statistics.view.search</field>
+            <field name="model">product.statistics</field>
+            <field name="arch" type="xml">
+                <search string="Estadisticas de Producto">
+                    <filter name="archived" string="Archivado" domain="[('active', '=', False)]"/>
+                </search>
             </field>
         </record>
 

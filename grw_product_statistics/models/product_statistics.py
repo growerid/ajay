@@ -12,28 +12,39 @@ class ProductStatistics(models.Model):
     name = fields.Char(
         string='Código',
         default=lambda self: self._get_statistic_name(),
+        readonly=True
+    )
+    active = fields.Boolean(
+        string='Activo',
+        default=True,
     )
     ps_connection_id = fields.Many2one(
         comodel_name='product.statistics.connection',
-        string='Conexion'
+        string='Conexion',
+        readonly=True
     )
     app_id = fields.Many2one(
         related='ps_connection_id.app_id'
     )
     year = fields.Char(
-        string='Year'
+        string='Year',
+        readonly=True
     )
     quarter = fields.Char(
-        string='Quarter'
+        string='Quarter',
+        readonly=True
     )
     month = fields.Char(
-        string='Month'
+        string='Month',
+        readonly=True
     )
     fob_date = fields.Date(
-        string='FOB Date'
+        string='FOB Date',
+        readonly=True
     )
     cif_date = fields.Date(
-        string='CIF Date'
+        string='CIF Date',
+        readonly=True
     )
     hs_code_2 = fields.Many2one(
         comodel_name='product.template',
@@ -41,14 +52,16 @@ class ProductStatistics(models.Model):
     )
     product_group = fields.Many2one(
         related='hs_code_2.categ_id',
-        string='Product Group'
+        string='Product Group',
     )
     original_name_destination = fields.Char(
-        string='Original Name Destination'
+        string='Original Name Destination',
+        readonly=True
     )
     group_name_destination = fields.Many2one(
         comodel_name='res.country',
-        string='Group Name Destination'
+        string='Group Name Destination',
+        readonly=True
     )
     continent = fields.Selection(
         [('asia_oceania','Asia & Ocenania'),
@@ -56,7 +69,8 @@ class ProductStatistics(models.Model):
          ('latam','LATAM'),
          ('nam','NAM'),
          ('nd','Not Declared')],
-         string='Continent'
+         string='Continent',
+         readonly=True
     )
     market_zone = fields.Many2one(
         comodel_name='res.country.group',
@@ -65,60 +79,78 @@ class ProductStatistics(models.Model):
     )
     origin = fields.Many2one(
         comodel_name='res.country',
-        string='Origin'
+        string='Origin',
+        readonly=True
     )
     producer = fields.Many2one(
         comodel_name='res.partner',
-        string='Producer'
+        string='Producer',
+        readonly=True
     )
     cluster = fields.Many2many(
         related='producer.category_id',
-        string='Cluster'
+        string='Cluster',
+        readonly=True
     )
     detail = fields.Char(
-        string='Detail'
+        string='Detail',
+        readonly=True
     )
     quantity_kg = fields.Float(
-        string='Quantity (Kg)'
+        string='Quantity (Kg)',
+        readonly=True
     )
     quantity_ie_kg = fields.Float(
-        string='Quantity IE (Kg)'
+        string='Quantity IE (Kg)',
+        readonly=True
     )
     quantity_mt = fields.Float(
-        string='Quantity (MT)'
+        string='Quantity (MT)',
+        readonly=True
     )
     quantity_ie_mt = fields.Float(
-        string='Quantity IE (MT)'
+        string='Quantity IE (MT)',
+        readonly=True
     )
     total_fob = fields.Float(
-        string='Total $ FOB'
+        string='Total $ FOB',
+        readonly=True
     )
     fob_up_kg = fields.Float(
-        string='FOB UP $/kg'
+        string='FOB UP $/kg',
+        readonly=True
     )
     cif_up_kg = fields.Float(
-        string='CIF UP $/kg'
+        string='CIF UP $/kg',
+        readonly=True
     )
     total_cif = fields.Float(
-        string='Total $ CIF'
+        string='Total $ CIF',
+        readonly=True
     )
     description = fields.Text(
-        string='Description'
+        string='Description',
+        readonly=True
     )
     hs_source = fields.Text(
-        string='HS Source'
+        string='HS Source',
+        readonly=True
     )
     hs_matched = fields.Text(
-        string='HS Matched'
+        string='HS Matched',
+        readonly=True
     )
     needs_llm = fields.Text(
-        string='Needs LLM'
+        string='Needs LLM',
+        readonly=True
     )
     source = fields.Text(
-        string='Source'
+        string='Source',
+        readonly=True
     )
     bill_of_landing = fields.Char(
-        string='Bill of Landing'    
+        string='Bill of Landing',
+        readonly=True    
     )
 
 
