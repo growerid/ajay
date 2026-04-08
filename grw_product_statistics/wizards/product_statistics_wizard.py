@@ -36,12 +36,12 @@ class ProductStatisticsWizard(models.TransientModel):
 
     @api.model
     def _get_default_date_start(self):
-        return fields.Date.context_today(self).replace(day=1)
+        return (lambda self: fields.Date.context_today(self)).replace(day=1)
 
 
     @api.model
     def _get_default_date_end(self):
-        return fields.Date.context_today(self) + relativedelta(months=1, day=1, days=-1)
+        return (lambda self: fields.Date.context_today(self)) + relativedelta(months=1, day=1, days=-1)
 
 
     def action_execute(self):

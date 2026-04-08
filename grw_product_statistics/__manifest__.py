@@ -34,6 +34,7 @@
         'views/product_category_views.xml',
         'views/conversion_table_view.xml',
         'wizards/product_statistics_wizards.xml',
+        'wizards/product_statistics_country_assign_wizards.xml',
         'data/product_statistics_data.xml',
     ],
 }

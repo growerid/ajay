@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models, api, _
+from odoo.exceptions import UserError
+
 
 
 class ProductStatistics(models.Model):
@@ -163,6 +165,13 @@ class ProductStatistics(models.Model):
             record.market_zone = record._get_market_zone()
 
 
+    # BUTTON METHODS
+
+    def action_country_assign(self):
+        self._ensure_country_assign_consistency()
+        return self._country_assign_open_wizard()
+
+
     # OTHER METHODS
 
     def _get_statistic_name(self):
@@ -172,6 +181,30 @@ class ProductStatistics(models.Model):
     def _get_market_zone(self):
         return self.group_name_destination.country_group_ids[0] if self.group_name_destination.country_group_ids else False
 
+
+    def _country_assign_open_wizard(self):
+        view = self.env.ref('grw_product_statistics.product_statistics_country_assign_wizard_view_form')
+        return {
+            'name': _('Asignar País'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'product.statistics.country.assign.wizard',
+            'views': [(view.id, 'form')],
+            'view_id': view.id,
+            'target': 'new',
+            'context': {'product_statistics_ids': self.ids,
+                        'default_original_name_destination': self[0].original_name_destination, 
+                        }
+        }
+
+
+    def _ensure_country_assign_consistency(self):
+        if len(set(self.mapped(lambda l: l.original_name_destination))) > 1:
+            raise UserError('Para la asignación del País, ' \
+            'todos los registros seleccionados deben tener ' \
+            'el mismo valor en el campo Original Name Destination')
+
+    
 
 
 

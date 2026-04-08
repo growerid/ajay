@@ -29,6 +29,11 @@
             <field name="model">product.statistics</field>
             <field name="arch" type="xml">
                 <tree string="Estadisticas de Producto" create="0" editable="top">
+
+                    <header>
+                        <button string="Asignar País" name="action_country_assign" type="object" class="oe_highlight"/>
+                    </header>
+                    
                     <field name="name" optional="show"/>
                     <field name="ps_connection_id" optional="hide"/>
                     <field name="year" optional="show"/>
@@ -62,6 +67,7 @@
                     <field name="needs_llm" optional="hide"/>
                     <field name="source" optional="hide"/>
                     <field name="bill_of_landing" optional="hide"/>
+                    
                 </tree>
             </field>
         </record>

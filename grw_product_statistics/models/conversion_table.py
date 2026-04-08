@@ -33,6 +33,12 @@ class ConversionTable(models.Model):
         for table in self:
             if self.search([('name','=',table.name),('id','!=',table.id)]):
                 raise UserError("\nYa existe una tabla con el nombre %s." % table.name)
+            
+
+    # OTHER METHODS
+
+    def _get_conversion(self, value_in):
+        return self.conversion_line_ids.filtered(lambda l: l.value_in.lower() == value_in.lower()).value_out
 
 
 
@@ -65,3 +71,6 @@ class ConversionTableLine(models.Model):
         for line in self:
             if len(line.conversion_table_id.conversion_line_ids.filtered(lambda l: l.value_in == line.value_in)) > 1:
                 raise UserError("\nNo pueden existir dos registros con el mismo Valor Origen (%s) para una misma tabla." % line.value_in)
+
+
+    

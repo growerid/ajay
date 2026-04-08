@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+        <record id="product_statistics_country_assign_wizard_view_form" model="ir.ui.view">
+            <field name="name">product.statistics.country.assign.wizard.view.form</field>
+            <field name="model">product.statistics.country.assign.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Asignar País">
+                        <group name='assign' string="Asignación">
+                            <group>
+                                <field name="original_name_destination"
+                                    required="True"
+                                />
+                            </group>
+                            <group>
+                                <field name="group_name_destination"
+                                    required="True"
+                                />
+                            </group>
+                        </group>
+                        <group name="conversion" string="Conversión">
+                            <field name="set_conversion"/>
+                            <field name="conversion_table_id"
+                                invisible="not set_conversion"
+                                required="set_conversion"
+                            />
+                        </group>
+                        <footer>
+                            <button name="action_assign_country" class="btn btn-primary" string="Asignar" type="object"/>
+                            <button string="Cancelar" special="cancel"/>
+                        </footer>
+                </form>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

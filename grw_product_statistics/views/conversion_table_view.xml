@@ -54,7 +54,7 @@
             <field name="name">conversion.table.line.view.tree</field>
             <field name="model">conversion.table.line</field>
             <field name="arch" type="xml">
-                <tree string="Lineas de Conversión" editable="bottom">
+                <tree string="Lineas de Conversión" editable="bottom" default_order="value_in">
                     <field name="value_in"/>
                     <field name="value_out"/>
                 </tree>
