@@ -36,6 +36,7 @@
                     
                     <field name="name" optional="show"/>
                     <field name="ps_connection_id" optional="hide"/>
+                    <field name="app_id" optional="hide"/>
                     <field name="year" optional="show"/>
                     <field name="quarter" optional="show"/>
                     <field name="month" optional="show"/>
@@ -79,6 +80,7 @@
             <field name="arch" type="xml">
                 <search string="Estadisticas de Producto">
                     <filter name="archived" string="Archivado" domain="[('active', '=', False)]"/>
+                    <filter name="app_id_group" string="ID App" domain="[]" context="{'group_by': 'app_id'}" />
                 </search>
             </field>
         </record>

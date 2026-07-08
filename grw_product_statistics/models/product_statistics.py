@@ -26,7 +26,8 @@ class ProductStatistics(models.Model):
         readonly=True
     )
     app_id = fields.Many2one(
-        related='ps_connection_id.app_id'
+        related='ps_connection_id.app_id',
+        store=True
     )
     year = fields.Char(
         string='Year',
