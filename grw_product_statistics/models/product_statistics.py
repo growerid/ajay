@@ -154,7 +154,9 @@ class ProductStatistics(models.Model):
         string='Bill of Landing',
         readonly=True    
     )
-
+    port = fields.Char(
+        string='Port'
+    )
 
 
     # COMPUTE METHODS

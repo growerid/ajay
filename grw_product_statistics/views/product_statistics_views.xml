@@ -67,7 +67,7 @@
                     <field name="needs_llm" optional="hide"/>
                     <field name="source" optional="hide"/>
                     <field name="bill_of_landing" optional="hide"/>
-                    
+                    <field name="port" optional="hide"/>
                 </tree>
             </field>
         </record>
